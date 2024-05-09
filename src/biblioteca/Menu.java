@@ -39,5 +39,23 @@ public class Menu {
 		scanner.nextLine();
 		opcao = 0;
 	}
+	switch (opcao) {
+    case 1:
+        CriarConta.criarConta();
+        break;
+    case 2:
+        Login.login();
+        break;
+    case 3:
+        DigitarTitulo.digitarTitulo();
+        break;
+    // Adicione os cases para as outras opções do menu
+    case 9:
+        Sair.sair();
+        break;
+    default:
+        System.out.println("Opção inválida!");
+}
+
 	}
 }
