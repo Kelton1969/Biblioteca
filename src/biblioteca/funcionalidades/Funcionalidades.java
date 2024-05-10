@@ -73,6 +73,28 @@ public class Funcionalidades {
 
         System.out.println("Conta não encontrada.");
     }
+    public static void apagarConta() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("==== Apagar Conta ====");
+        System.out.println("Digite o e-mail da conta que deseja apagar: ");
+        String email = scanner.nextLine();
+
+        for (int i = 0; i < Conta.numContas; i++) {
+            if (Conta.contas[i].getEmail().equals(email)) {
+                // Remove a conta da lista
+                for (int j = i; j < Conta.numContas - 1; j++) {
+                    Conta.contas[j] = Conta.contas[j + 1];
+                }
+                Conta.numContas--;
+                System.out.println("Conta apagada com sucesso!");
+                return;
+            }
+        }
+
+        System.out.println("Conta com o e-mail '" + email + "' não encontrada.");
+    }
+
 
     private static boolean verificarFormatoSenha(String senha) {
         return senha.length() >= 6;
